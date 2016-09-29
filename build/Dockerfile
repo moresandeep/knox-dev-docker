@@ -17,7 +17,8 @@ RUN apt-get install -y ant
 RUN useradd -ms /bin/bash gateway
 
 # Clone our dev branch
-RUN git clone -b KNOX-752_Websockets --single-branch https://github.com/moresandeep/knox.git knox
+ARG gitcommand
+RUN $gitcommand
 
 # build
 # RUN cd knox && ant clean release

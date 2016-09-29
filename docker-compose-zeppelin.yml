@@ -8,6 +8,7 @@ services:
         gitcommand: git clone -b KNOX-752_Websockets --single-branch https://github.com/moresandeep/knox.git knox
     image: smore/knox-dev:0.1
 
+
   ldap:
     image: smore/knox-dev:0.1
     command: /ldap.sh
@@ -23,3 +24,10 @@ services:
       - ./zeppelinws:/knox/knox-0.10.0-SNAPSHOT/data/services/zeppelinws
     depends_on:
       - ldap
+
+  zeppelin:
+    image: dylanmei/zeppelin
+    environment:
+      ZEPPELIN_PORT: 9995
+    ports:
+      - "9995"

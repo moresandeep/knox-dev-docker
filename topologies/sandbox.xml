@@ -147,11 +147,11 @@
     <!-- Zeppelin UI -->
     <service>
         <role>ZEPPELINWS</role>
-        <url>ws://localhost:9995</url>
+        <url>ws://zeppelin:9995</url>
     </service>
     <service>
         <role>ZEPPELINUI</role>
-        <url>http://localhost:9995</url>
+        <url>http://zeppelin:9995</url>
     </service>
 
 </topology>
