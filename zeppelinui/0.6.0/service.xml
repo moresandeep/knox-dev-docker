@@ -1,0 +1,22 @@
+<service role="ZEPPELINUI" name="zeppelinui" version="0.6.0">
+  <policies>
+        <policy role="webappsec"/>
+        <policy role="authentication" name="Anonymous"/>
+        <policy role="rewrite"/>
+        <policy role="authorization"/>
+  </policies>
+  <routes>
+    <route path="/zeppelin/">
+        <rewrite apply="ZEPPELINUI/zeppelin/inbound/root" to="request.url"/>
+    </route>
+
+    <route path="/zeppelin/**">
+        <rewrite apply="ZEPPELINUI/zeppelin/inbound/path" to="request.url"/>
+    </route>
+
+    <route path="/zeppelin/**?**">
+        <rewrite apply="ZEPPELINUI/zeppelin/inbound/query" to="request.url"/>
+    </route>
+  </routes>
+  <dispatch classname="org.apache.hadoop.gateway.dispatch.PassAllHeadersDispatch"/>
+</service>

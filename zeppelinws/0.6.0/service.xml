@@ -1,0 +1,14 @@
+<service role="ZEPPELINWS" name="zeppelinws" version="0.6.0">
+  <policies>
+        <policy role="webappsec"/>
+        <policy role="authentication" name="Anonymous"/>
+        <policy role="rewrite"/>
+        <policy role="authorization"/>
+  </policies>
+  <routes>
+    <route path="zeppelinws/ws/**">
+        <rewrite apply="ZEPPELINWS/zeppelin/ws/outbound" to="response.body"/>
+        <rewrite apply="ZEPPELINWS/zeppelin/ws/inbound" to="request.body"/>
+    </route>
+  </routes>
+</service>

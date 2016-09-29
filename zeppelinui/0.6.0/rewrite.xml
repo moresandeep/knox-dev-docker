@@ -1,0 +1,30 @@
+<rules>
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/root" pattern="*://*:*/**/zeppelin/">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/"/>
+  </rule>
+
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/path" pattern="*://*:*/**/zeppelin/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/{**}"/>
+  </rule>
+
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/query" pattern="*://*:*/**/zeppelin/{**}?{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/{**}?{**}"/>
+  </rule>
+
+  <rule dir="OUT" name="ZEPPELINUI/zeppelin/outbound/css" pattern="styles/{**}">
+        <rewrite template="{$frontend[path]}/zeppelin/styles/{**}"/>
+  </rule>
+
+  <rule dir="OUT" name="ZEPPELINUI/zeppelin/outbound/assets/styles" pattern="assets/styles/{**}">
+        <rewrite template="{$frontend[path]}/zeppelin/assets/styles/{**}"/>
+  </rule>
+
+  <rule dir="OUT" name="ZEPPELINUI/zeppelin/outbound/assets" pattern="assets/{**}">
+        <rewrite template="{$frontend[path]}/zeppelin/assets/{**}"/>
+  </rule>
+
+  <rule dir="OUT" name="ZEPPELINUI/zeppelin/outbound/javascript" pattern="scripts/{**}">
+        <rewrite template="{$frontend[path]}/zeppelin/scripts/{**}"/>
+  </rule>
+
+</rules>

@@ -1,0 +1,5 @@
+<rules>
+  <rule dir="IN" name="ZEPPELINWS/zeppelin/inbound" pattern="*://*:*/**/ws/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINWS]}/ws/{**}"/>
+  </rule>
+</rules>

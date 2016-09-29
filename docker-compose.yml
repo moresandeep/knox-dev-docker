@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  knox-dev:
+    build: ./build
+    image: smore/knox-dev:0.1
+
+  ldap:
+    image: smore/knox-dev:0.1
+    command: /ldap.sh
+
+  knox:
+    image: smore/knox-dev:0.1
+    ports:
+      - "8443:8443"
+    command: /gateway.sh
+    volumes:
+      - ./topologies:/knox/knox-0.10.0-SNAPSHOT/conf/topologies
+      - ./zeppelinui:/knox/knox-0.10.0-SNAPSHOT/data/services/zeppelinui
+      - ./zeppelinws:/knox/knox-0.10.0-SNAPSHOT/data/services/zeppelinws
+    depends_on:
+      - ldap
