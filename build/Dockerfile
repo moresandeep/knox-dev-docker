@@ -29,6 +29,8 @@ RUN cd knox && mvn clean -Ppackage,release install -DskipTests && tar -xvzf targ
 ADD master /knox/knox-0.10.0-SNAPSHOT/data/security/master
 RUN chown -R gateway /knox/knox-0.10.0-SNAPSHOT/
 
+RUN ls -la /root/
+
 ADD ldap.sh /ldap.sh
 ADD gateway.sh /gateway.sh
 
