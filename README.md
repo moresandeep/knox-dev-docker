@@ -72,4 +72,4 @@ Also refer to the `docker-compose-zeppelin.yml` file for more settings if you wa
 
 Instructions to run Knox Zeppelin demo:
 * `docker-compose -f docker-compose-zeppelin.yml up -d`
-*  Go to `https://localhost:8443/gateway/sandbox/zeppelin/`
+*  Go to `https://localhost:8443/gateway/sandbox/zeppelin/` 
