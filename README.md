@@ -4,7 +4,6 @@ Build a development environment that can be used to develop service definitions 
 
 ## Pre-Req
 * docker-compose version 2 required.
-* No proxy.
 * To understand UI Proxying with Knox please refer to this excellent guide - [Proxying UI using Knox](https://cwiki.apache.org/confluence/display/KNOX/Proxying+a+UI+using+Knox)
 * For more information and explanation on Knox please refer to the [Dev guide](https://knox.apache.org/books/knox-0-9-1/dev-guide.html)
 
