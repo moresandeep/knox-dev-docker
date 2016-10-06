@@ -2,6 +2,10 @@
 
 Build a development environment that can be used to develop service definitions for introducing UI and REST API proxying capabilities for Apache Knox.
 
+For the restless, instructions for Knox Zeppelin demo:
+* `docker-compose -f docker-compose-zeppelin.yml up -d`
+*  Go to `https://localhost:8443/gateway/sandbox/zeppelin/`
+
 ## Pre-Req
 * docker-compose version 2 required.
 * To understand UI Proxying with Knox please refer to this excellent guide - [Proxying UI using Knox](https://cwiki.apache.org/confluence/display/KNOX/Proxying+a+UI+using+Knox)
@@ -12,7 +16,9 @@ Build a Knox dev container using docker-compose. we can use this as a base image
 
 * Checkout this repository `git clone https://github.com/moresandeep/knox-dev-docker.git`
 * `cd knox-dev-docker`
-* `docker-compose up -d` This builds the Knox dev container if not already present by checking out code from the provided git repo (in docker-compose.yml) and starts an docker container with test ldap service running and starts a container with knox gateway service running.
+* `docker-compose up -d` This builds the Knox dev container if not already present by checking out code from the provided git repo (in docker-compose.yml). Starts a docker container with
+  * Test ldap container and
+  * Knox gateway container
 * `docker ps` should show your gateway and ldap containers running.
 * run `docker-compose stop` to stop the containers.
 * To stops containers and removes containers, networks, volumes, and images run `docker-compose down`.
