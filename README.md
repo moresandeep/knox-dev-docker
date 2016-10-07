@@ -6,6 +6,15 @@ For the restless, instructions for Knox Zeppelin demo:
 * `docker-compose -f docker-compose-zeppelin.yml up -d`
 *  Go to `https://localhost:8443/gateway/sandbox/zeppelin/`
 
+Table of Contents
+=================
+
+  * [Pre-Req](#pre-req)
+  * [How to Build Knox dev container](#build-knox-dev-container)
+    * [Settings for Knox container](#settings)
+  * [How to add new services](#adding-new-services)
+    * [Demo: Knox dev container Zeppelin](#demo-knox-dev-container--zeppelin)
+
 ## Pre-Req
 * docker-compose version 2 required.
 * To understand UI Proxying with Knox please refer to this excellent guide - [Proxying UI using Knox](https://cwiki.apache.org/confluence/display/KNOX/Proxying+a+UI+using+Knox)
@@ -72,4 +81,4 @@ Also refer to the `docker-compose-zeppelin.yml` file for more settings if you wa
 
 Instructions to run Knox Zeppelin demo:
 * `docker-compose -f docker-compose-zeppelin.yml up -d`
-*  Go to `https://localhost:8443/gateway/sandbox/zeppelin/` 
+*  Go to `https://localhost:8443/gateway/sandbox/zeppelin/`
