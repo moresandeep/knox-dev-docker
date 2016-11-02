@@ -3,13 +3,66 @@
     <rewrite template="{$serviceUrl[ZEPPELINUI]}/"/>
   </rule>
 
+  <!--
   <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/path" pattern="*://*:*/**/zeppelin/{**}">
     <rewrite template="{$serviceUrl[ZEPPELINUI]}/{**}"/>
   </rule>
+  -->
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/notebook" pattern="*://*:*/**/zeppelin/{**}/notebook/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/{**}/notebook/{**}"/>
+  </rule>
 
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/interpreter" pattern="*://*:*/**/zeppelin/{**}/interpreter/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/{**}/interpreter/{**}"/>
+  </rule>
+
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/credential" pattern="*://*:*/**/zeppelin/{**}/credential/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/{**}/credential/{**}"/>
+  </rule>
+
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/configuration" pattern="*://*:*/**/zeppelin/{**}/configuration/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/{**}/configuration/{**}"/>
+  </rule>
+
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/api" pattern="*://*:*/**/zeppelin/api/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/api/{**}"/>
+  </rule>
+
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/components" pattern="*://*:*/**/zeppelin/components/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/components/{**}"/>
+  </rule>
+
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/app" pattern="*://*:*/**/zeppelin/app/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/app/{**}"/>
+  </rule>
+
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/app/notebook" pattern="*://*:*/**/zeppelin/app/notebook/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/app/notebook/{**}"/>
+  </rule>
+
+  <!-- Resources -->
+
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/styles" pattern="*://*:*/**/zeppelin/styles/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/styles/{**}"/>
+  </rule>
+
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/scripts" pattern="*://*:*/**/zeppelin/scripts/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/scripts/{**}"/>
+  </rule>
+
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/assets" pattern="*://*:*/**/zeppelin/assets/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/assets/{**}"/>
+  </rule>
+
+  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/fonts" pattern="*://*:*/**/zeppelin/fonts/{**}">
+    <rewrite template="{$serviceUrl[ZEPPELINUI]}/fonts/{**}"/>
+  </rule>
+
+  <!--
   <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/query" pattern="*://*:*/**/zeppelin/{**}?{**}">
     <rewrite template="{$serviceUrl[ZEPPELINUI]}/{**}?{**}"/>
   </rule>
+  -->
 
   <rule dir="OUT" name="ZEPPELINUI/zeppelin/outbound/css" pattern="styles/{**}">
         <rewrite template="{$frontend[path]}/zeppelin/styles/{**}"/>

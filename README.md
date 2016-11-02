@@ -19,12 +19,14 @@ Table of Contents
 * docker-compose version 2 required.
 * To understand UI Proxying with Knox please refer to this excellent guide - [Proxying UI using Knox](https://cwiki.apache.org/confluence/display/KNOX/Proxying+a+UI+using+Knox)
 * For more information and explanation on Knox please refer to the [Dev guide](https://knox.apache.org/books/knox-0-9-1/dev-guide.html)
+* Note the current [Knox version](https://github.com/apache/knox/blob/master/pom.xml#L29) you will need it to provide to the docker-compose* file. Currently 0.11.0-SNAPSHOT is used as default. 
 
 ## Build Knox dev container
 Build a Knox dev container using docker-compose. we can use this as a base image to build on.
 
 * Checkout this repository `git clone https://github.com/moresandeep/knox-dev-docker.git`
 * `cd knox-dev-docker`
+* Check your docker compose file i.e. either `docker-compose.yml` or `docker-compose-zeppelin.yml` and update the `knoxversion` property to the current [version](https://github.com/apache/knox/blob/master/pom.xml#L29) if it is not current.
 * `docker-compose up -d` This builds the Knox dev container if not already present by checking out code from the provided git repo (in docker-compose.yml). Starts a docker container with
   * Test ldap container and
   * Knox gateway container
@@ -70,6 +72,9 @@ Here we describe how a new service can be added. We will need the containers to 
 `
 {"city":{"id":524901,"name":"Moscow","coord":{"lon":37.615555,"lat":55.75222},"country":"RU","population":0,"sys":{"population":0}},"cod":"200","message":0.172,"cnt":40,"list":[{"dt":1475798400,"main":{"temp":282.64,"temp_min":282.64,"temp_max":282.644,"pressure":1014.9,"sea_level":1035.01,"grnd_level":1014.9,"humidity":94,"temp_kf":0},"weather":[{"id":500,"main":"Rain","description":"light rain","icon":"10n"}],"clouds":{"all":92},"wind":{"speed":3.71,"deg":84.5015},"rain":{"3h":0.8325},"sys":{"pod":"n"},"dt_txt":"2016-10-07 00:00:00"},{"dt":1475809200,"main":{"temp":282.3,"temp_min":282.296,"temp_max":282.3,"pressure":1013.21,"sea_level":1033.38,"grnd_level":1013.21,"humidity":97,"temp_kf":0},"weather":[{"id":500,"main":"Rain","description":"light rain","icon":"10n"}],"clouds":{"all":92} ...
 `
+
+### Troubleshooting
+* In case you get error such as `cannot stat /knox/knox-0.11.0-SNAPSHOT` while building the knox-dev image go to your docker compose file i.e. either `docker-compose.yml` or `docker-compose-zeppelin.yml` and update the `knoxversion` property to the current [version](https://github.com/apache/knox/blob/master/pom.xml#L29) that Knox master is using. Please let me know or submit a PR if possible.
 
 ### Demo: Knox dev container + Zeppelin  
 An example of Knox proxying Zeppelin UI and websocket connections. This example is already configured and runs out of the box.

@@ -5,21 +5,22 @@ services:
     build:
       context: ./build
       args:
-        gitcommand: git clone -b KNOX-752_Websockets --single-branch https://github.com/moresandeep/knox.git knox
-    image: smore/knox-dev:0.1
+        gitcommand: git clone https://github.com/apache/knox.git knox
+        knoxversion: 0.11.0-SNAPSHOT
+    image: moresandeep/knox-dev:master
 
   ldap:
-    image: smore/knox-dev:0.1
+    image: moresandeep/knox-dev:master
     command: /ldap.sh
 
   knox:
-    image: smore/knox-dev:0.1
+    image: moresandeep/knox-dev:master
     ports:
       - "8443:8443"
     command: /gateway.sh
     volumes:
-      - ./topologies:/knox/knox-0.10.0-SNAPSHOT/conf/topologies
-      - ./zeppelinui:/knox/knox-0.10.0-SNAPSHOT/data/services/zeppelinui
-      - ./zeppelinws:/knox/knox-0.10.0-SNAPSHOT/data/services/zeppelinws
+      - ./topologies:/knox-runtime/conf/topologies
+      - ./zeppelinui:/knox-runtime/data/services/zeppelinui
+      - ./zeppelinws:/knox-runtime/data/services/zeppelinws
     depends_on:
       - ldap

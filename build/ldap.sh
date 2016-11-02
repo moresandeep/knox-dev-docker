@@ -1,3 +1,3 @@
 #!/bin/sh
 
-java -jar /knox/knox-0.10.0-SNAPSHOT/bin/ldap.jar /knox/knox-0.10.0-SNAPSHOT/conf
+java -jar /knox-runtime/bin/ldap.jar /knox-runtime/conf

@@ -18,18 +18,31 @@ RUN useradd -ms /bin/bash gateway
 
 # Clone our dev branch
 ARG gitcommand
+ARG knoxversion
+
 RUN $gitcommand
 
 # build
 # RUN cd knox && ant clean release
 
 # Skipping tests here for faster turnaround.
-RUN cd knox && mvn clean -Ppackage,release install -DskipTests && tar -xvzf target/0.10.0-SNAPSHOT/knox-0.10.0-SNAPSHOT.tar.gz
+RUN cd knox && mvn clean -Ppackage,release install -DskipTests && tar -xvzf target/$knoxversion/*.tar.gz
 
-ADD master /knox/knox-0.10.0-SNAPSHOT/data/security/master
-RUN chown -R gateway /knox/knox-0.10.0-SNAPSHOT/
+# move runtime to new location
+RUN mkdir /knox-runtime
+RUN mv /knox/knox-$knoxversion/* /knox-runtime
 
-RUN ls -la /root/
+# delete build artifacts
+RUN rm -rf /knox
+
+ADD master /knox-runtime/data/security/master
+# Enable websockets
+ADD gateway-site.xml /knox-runtime/conf/gateway-site.xml
+
+RUN chown -R gateway /knox-runtime/
+
+# Cleanup 
+RUN rm -rf /home/gateway/.m2/repository
 
 ADD ldap.sh /ldap.sh
 ADD gateway.sh /gateway.sh
@@ -37,5 +50,3 @@ ADD gateway.sh /gateway.sh
 RUN chmod +x /ldap.sh
 RUN chmod +x /gateway.sh
 
-USER gateway
-WORKDIR /home/gateway
