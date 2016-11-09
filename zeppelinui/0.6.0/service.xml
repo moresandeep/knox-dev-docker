@@ -10,26 +10,6 @@
         <rewrite apply="ZEPPELINUI/zeppelin/inbound/root" to="request.url"/>
     </route>
 
-    <!--
-    <route path="/zeppelin/**">
-        <rewrite apply="ZEPPELINUI/zeppelin/inbound/path" to="request.url"/>
-    </route>
-    -->
-    <route path="/zeppelin/**/notebook/**">
-        <rewrite apply="ZEPPELINUI/zeppelin/inbound/notebook" to="request.url"/>
-    </route>
-
-    <route path="/zeppelin/**/interpreter/**">
-        <rewrite apply="ZEPPELINUI/zeppelin/inbound/interpreter" to="request.url"/>
-    </route>
-
-    <route path="/zeppelin/**/credential/**">
-        <rewrite apply="ZEPPELINUI/zeppelin/inbound/credential" to="request.url"/>
-    </route>
-
-    <route path="/zeppelin/**/configuration/**">
-        <rewrite apply="ZEPPELINUI/zeppelin/inbound/configuration" to="request.url"/>
-    </route>
 
     <route path="/zeppelin/api/**">
         <rewrite apply="ZEPPELINUI/zeppelin/inbound/api" to="request.url"/>
@@ -63,12 +43,6 @@
     <route path="/zeppelin/fonts/**">
         <rewrite apply="ZEPPELINUI/zeppelin/inbound/fonts" to="request.url"/>
     </route>
-
-    <!--
-    <route path="/zeppelin/**?**">
-        <rewrite apply="ZEPPELINUI/zeppelin/inbound/query" to="request.url"/>
-    </route>
-    -->
 
   </routes>
   <dispatch classname="org.apache.hadoop.gateway.dispatch.PassAllHeadersDispatch"/>

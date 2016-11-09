@@ -3,11 +3,7 @@
     <rewrite template="{$serviceUrl[ZEPPELINUI]}/"/>
   </rule>
 
-  <!--
-  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/path" pattern="*://*:*/**/zeppelin/{**}">
-    <rewrite template="{$serviceUrl[ZEPPELINUI]}/{**}"/>
-  </rule>
-  -->
+
   <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/notebook" pattern="*://*:*/**/zeppelin/{**}/notebook/{**}">
     <rewrite template="{$serviceUrl[ZEPPELINUI]}/{**}/notebook/{**}"/>
   </rule>
@@ -58,11 +54,6 @@
     <rewrite template="{$serviceUrl[ZEPPELINUI]}/fonts/{**}"/>
   </rule>
 
-  <!--
-  <rule dir="IN" name="ZEPPELINUI/zeppelin/inbound/query" pattern="*://*:*/**/zeppelin/{**}?{**}">
-    <rewrite template="{$serviceUrl[ZEPPELINUI]}/{**}?{**}"/>
-  </rule>
-  -->
 
   <rule dir="OUT" name="ZEPPELINUI/zeppelin/outbound/css" pattern="styles/{**}">
         <rewrite template="{$frontend[path]}/zeppelin/styles/{**}"/>
