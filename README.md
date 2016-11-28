@@ -13,6 +13,7 @@ Table of Contents
   * [How to Build Knox dev container](#build-knox-dev-container)
     * [Settings for Knox container](#settings)
   * [How to add new services](#adding-new-services)
+    * [Adding service to Knox build](#adding-service-to-knox-build)
     * [Demo: Knox dev container Zeppelin](#demo-knox-dev-container--zeppelin)
   * [Troubleshooting](#troubleshooting )
 
@@ -73,6 +74,10 @@ Here we describe how a new service can be added. We will need the containers to 
 `
 {"city":{"id":524901,"name":"Moscow","coord":{"lon":37.615555,"lat":55.75222},"country":"RU","population":0,"sys":{"population":0}},"cod":"200","message":0.172,"cnt":40,"list":[{"dt":1475798400,"main":{"temp":282.64,"temp_min":282.64,"temp_max":282.644,"pressure":1014.9,"sea_level":1035.01,"grnd_level":1014.9,"humidity":94,"temp_kf":0},"weather":[{"id":500,"main":"Rain","description":"light rain","icon":"10n"}],"clouds":{"all":92},"wind":{"speed":3.71,"deg":84.5015},"rain":{"3h":0.8325},"sys":{"pod":"n"},"dt_txt":"2016-10-07 00:00:00"},{"dt":1475809200,"main":{"temp":282.3,"temp_min":282.296,"temp_max":282.3,"pressure":1013.21,"sea_level":1033.38,"grnd_level":1013.21,"humidity":97,"temp_kf":0},"weather":[{"id":500,"main":"Rain","description":"light rain","icon":"10n"}],"clouds":{"all":92} ...
 `
+
+### Adding service to Knox build
+* To add a new service, simply add a service.xml and rewrite.xml file in an appropriate directory (`/knox/gateway-service-definitions/src/main/resources`) in the module `gateway-service-definitions` to make the new service part of the Knox build.  
+* See https://knox.apache.org/books/knox-0-9-1/dev-guide.html#Service+Definition+Directory+Structure for Knox Service Definition Directory Structure.
 
 ### Demo: Knox dev container + Zeppelin  
 An example of Knox proxying Zeppelin UI and websocket connections. This example is already configured and runs out of the box.
