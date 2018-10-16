@@ -17,20 +17,18 @@ RUN apt-get install -y ant
 RUN useradd -ms /bin/bash gateway
 
 # Clone our dev branch
-ARG gitcommand
-ARG knoxversion
+ARG knoxurl
+ARG branch
 
-RUN $gitcommand
+RUN git clone -b $branch $knoxurl knox
 
-# build
-# RUN cd knox && ant clean release
-
+RUN mkdir /knox/knox-temp-artifacts
 # Skipping tests here for faster turnaround.
-RUN cd knox && mvn clean -Ppackage,release install -DskipTests && tar -xvzf target/$knoxversion/*.tar.gz
+RUN cd knox && mvn clean -Ppackage,release install -DskipTests && tar -xvzf target/*/knox-*.tar.gz -C knox-temp-artifacts
 
 # move runtime to new location
 RUN mkdir /knox-runtime
-RUN mv /knox/knox-$knoxversion/* /knox-runtime
+RUN mv /knox/knox-temp-artifacts/*/* /knox-runtime
 
 # delete build artifacts
 RUN rm -rf /knox

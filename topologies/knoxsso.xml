@@ -47,11 +47,11 @@
             </param>
             <param>
                 <name>main.ldapRealm</name>
-                <value>org.apache.hadoop.gateway.shirorealm.KnoxLdapRealm</value>
+                <value>org.apache.knox.gateway.shirorealm.KnoxLdapRealm</value>
             </param>
             <param>
                 <name>main.ldapContextFactory</name>
-                <value>org.apache.hadoop.gateway.shirorealm.KnoxLdapContextFactory</value>
+                <value>org.apache.knox.gateway.shirorealm.KnoxLdapContextFactory</value>
             </param>
             <param>
                 <name>main.ldapRealm.contextFactory</name>
@@ -89,7 +89,10 @@
             <role>hostmap</role>
             <name>static</name>
             <enabled>true</enabled>
-            <param><name>localhost</name><value>sandbox,sandbox.hortonworks.com</value></param>
+            <param>
+                <name>localhost</name>
+                <value>sandbox,sandbox.hortonworks.com</value>
+            </param>
         </provider>
 
     </gateway>
@@ -107,10 +110,6 @@
         <param>
             <name>knoxsso.token.ttl</name>
             <value>-1</value>
-        </param>
-        <param>
-           <name>knoxsso.redirect.whitelist.regex</name>
-           <value>^https?:\/\/(localhost|127\.0\.0\.1|0:0:0:0:0:0:0:1|::1):[0-9].*$</value>
         </param>
     </service>
 

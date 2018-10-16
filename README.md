@@ -1,6 +1,7 @@
 # Knox Dev Docker Container
 
 Build a development environment that can be used to develop service definitions for introducing UI and REST API proxying capabilities for Apache Knox.
+The development version of Apache Knox is build by pulling a specified branch from a specified git url (branch and knoxurl variables in docker-compose.yml file) 
 
 For the restless, instructions for Knox Zeppelin demo:
 * `docker-compose -f docker-compose-zeppelin.yml up -d`
@@ -21,14 +22,15 @@ Table of Contents
 * docker-compose version 2 required.
 * To understand UI Proxying with Knox please refer to this excellent guide - [Proxying UI using Knox](https://cwiki.apache.org/confluence/display/KNOX/Proxying+a+UI+using+Knox)
 * For more information and explanation on Knox please refer to the [Dev guide](https://knox.apache.org/books/knox-0-9-1/dev-guide.html)
-* Note the current [Knox version](https://github.com/apache/knox/blob/master/pom.xml#L29) you will need it to provide to the docker-compose* file. Currently 0.11.0-SNAPSHOT is used as default. 
+* By default branch [v.1.1.0](https://github.com/apache/knox/tree/v1.1.0) is used. 
+
 
 ## Build Knox dev container
 Build a Knox dev container using docker-compose. we can use this as a base image to build on.
 
 * Checkout this repository `git clone https://github.com/moresandeep/knox-dev-docker.git`
 * `cd knox-dev-docker`
-* Check your docker compose file i.e. either `docker-compose.yml` or `docker-compose-zeppelin.yml` and update the `knoxversion` property to the current [version](https://github.com/apache/knox/blob/master/pom.xml#L29) if it is not current.
+* Check your docker compose file i.e. either `docker-compose.yml` or `docker-compose-zeppelin.yml` and update the `branch` variable to the branch you want to build.
 * `docker-compose up -d` This builds the Knox dev container if not already present by checking out code from the provided git repo (in docker-compose.yml). Starts a docker container with
   * Test ldap container and
   * Knox gateway container
