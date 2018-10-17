@@ -1,9 +1,19 @@
 # Knox Dev Docker Container
 
-Build a development environment that can be used to develop service definitions for introducing UI and REST API proxying capabilities for Apache Knox.
-The development version of Apache Knox is build by pulling a specified branch from a specified git url (branch and knoxurl variables in docker-compose.yml file) 
+Introduction
+=================
+A docker container that can build, install and run Apache Knox from a configured git repository and branch. 
+By default, branch [v.1.1.0](https://github.com/apache/knox/tree/v1.1.0) is built and installed, variables `knoxurl` and `branch` defined in docker-compose.yml file can be used to choose a different repository and branch to build. A demo ldap server is also started, used by Apache Knox for authentication.
 
-For the restless, instructions for Knox Zeppelin demo:
+This is useful for testing Apache Knox topologies and for developing service definitions used for introducing UI and REST API proxying capabilities.
+
+Quick Start
+=================
+
+Starting Knox dev container:
+* `docker-compose up -d`
+
+Instructions for Knox Zeppelin demo:
 * `docker-compose -f docker-compose-zeppelin.yml up -d`
 *  Go to `https://localhost:8443/gateway/sandbox/zeppelin/`
 
