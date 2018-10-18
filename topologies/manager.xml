@@ -52,6 +52,8 @@
          <name>SSOCookieProvider</name>
          <enabled>true</enabled>
       </provider>
+	  <!-- For this scenario we will disable authorization and identity-assertion providers -->
+	  <!--
       <provider>
          <role>identity-assertion</role>
          <name>HadoopGroupProvider</name>
@@ -61,6 +63,7 @@
             <value>gateway.group.config.</value>
          </param>
       </provider>
+	  
       <provider>
          <role>authorization</role>
          <name>AclsAuthz</name>
@@ -74,6 +77,7 @@
             <value>KNOX_ADMIN_USERS;KNOX_ADMIN_GROUPS;*</value>
          </param>
       </provider>
+	  -->
    </gateway>
    <service>
       <role>KNOX</role>
