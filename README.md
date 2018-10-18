@@ -13,6 +13,9 @@ Quick Start
 Starting Knox dev container:
 * `docker-compose up -d`
 
+To access Admin UI:
+* https://localhost:8443/gateway/manager/admin-ui/
+
 Instructions for Knox Zeppelin demo:
 * `docker-compose -f docker-compose-zeppelin.yml up -d`
 *  Go to `https://localhost:8443/gateway/sandbox/zeppelin/`
