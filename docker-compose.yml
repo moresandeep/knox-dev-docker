@@ -20,7 +20,9 @@ services:
     command: /gateway.sh
     volumes:
       - ./topologies:/knox-runtime/conf/topologies
+      - ./logs:/knox-runtime/logs
       - ./zeppelinui:/knox-runtime/data/services/zeppelinui
       - ./zeppelinws:/knox-runtime/data/services/zeppelinws
+      - ./knoxshell:/knoxshell
     depends_on:
       - ldap

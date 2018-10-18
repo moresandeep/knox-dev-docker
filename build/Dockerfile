@@ -23,12 +23,18 @@ ARG branch
 RUN git clone -b $branch $knoxurl knox
 
 RUN mkdir /knox/knox-temp-artifacts
+RUN mkdir /knox/knoxshell-temp-artifacts
 # Skipping tests here for faster turnaround.
-RUN cd knox && mvn clean -Ppackage,release install -DskipTests && tar -xvzf target/*/knox-*.tar.gz -C knox-temp-artifacts
+RUN cd knox && mvn clean -Ppackage,release install -DskipTests && tar -xvzf target/*/knox-*.tar.gz -C knox-temp-artifacts && tar -xvzf /knox/target/*/knoxshell-*.tar.gz -C knoxshell-temp-artifacts
 
 # move runtime to new location
+# See https://github.com/docker/compose/issues/4581#issuecomment-321386605
+# for KnoxShell dance
 RUN mkdir /knox-runtime
+RUN mkdir /knoxshell
+RUN mkdir /knox-runtime/knoxshell
 RUN mv /knox/knox-temp-artifacts/*/* /knox-runtime
+RUN mv /knox/knoxshell-temp-artifacts/*/* /knox-runtime/knoxshell
 
 # delete build artifacts
 RUN rm -rf /knox
