@@ -12,9 +12,9 @@ Quick Start
 
 Starting Knox dev container:
 * `docker-compose up -d`
-* If you need to build using a specific repo and branch you can add the following environment variables to your shell environment (i.e. export knoxurl=https://github.com/apache/knox.git).
-  * knoxurl 
-  * branch
+* If you need to build using a specific repo and branch you can add the following environment variables to your shell environment (i.e. `export knoxurl=https://github.com/apache/knox.git`).
+  * `knoxurl`
+  * `branch`
 
 
 To access Admin UI:
