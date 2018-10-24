@@ -12,6 +12,10 @@ Quick Start
 
 Starting Knox dev container:
 * `docker-compose up -d`
+* If you need to build using a specific repo and branch you can add the following environment variables to your shell environment (i.e. export knoxurl=https://github.com/apache/knox.git).
+  * knoxurl 
+  * branch
+
 
 To access Admin UI:
 * https://localhost:8443/gateway/manager/admin-ui/
@@ -32,7 +36,7 @@ Table of Contents
   * [Troubleshooting](#troubleshooting )
 
 ## Pre-Req
-* docker-compose version 2 required.
+* docker-compose version 3 required.
 * To understand UI Proxying with Knox please refer to this excellent guide - [Proxying UI using Knox](https://cwiki.apache.org/confluence/display/KNOX/Proxying+a+UI+using+Knox)
 * For more information and explanation on Knox please refer to the [Dev guide](https://knox.apache.org/books/knox-0-9-1/dev-guide.html)
 * By default branch [v.1.1.0](https://github.com/apache/knox/tree/v1.1.0) is used. 

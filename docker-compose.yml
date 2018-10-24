@@ -1,12 +1,12 @@
-version: '2'
+version: '3'
 
 services:
   knox-dev:
     build:
       context: ./build
       args:
-        knoxurl: https://github.com/apache/knox.git
-        branch: v1.1.0
+        knoxurl: ${knoxurl:-https://github.com/apache/knox.git}
+        branch: ${branch:-v1.1.0}
     image: moresandeep/knox-dev:master
 
   ldap:
