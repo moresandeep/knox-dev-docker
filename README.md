@@ -3,7 +3,7 @@
 Introduction
 =================
 A docker container that can build, install and run Apache Knox from a configured git repository and branch. 
-By default, branch [v.1.1.0](https://github.com/apache/knox/tree/v1.1.0) is built and installed, variables `knoxurl` and `branch` defined in docker-compose.yml file can be used to choose a different repository and branch to build. A demo ldap server is also started, used by Apache Knox for authentication.
+By default, branch [v.2.2.0](https://github.com/apache/knox/tree/v2.0.0) is built and installed, variables `knoxurl` and `branch` defined in docker-compose.yml file can be used to choose a different repository and branch to build. A demo ldap server is also started, used by Apache Knox for authentication.
 
 This is useful for testing Apache Knox topologies and for developing service definitions used for introducing UI and REST API proxying capabilities.
 

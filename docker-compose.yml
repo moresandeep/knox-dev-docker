@@ -6,7 +6,7 @@ services:
       context: ./build
       args:
         knoxurl: ${knoxurl:-https://github.com/apache/knox.git}
-        branch: ${branch:-v1.1.0}
+        branch: ${branch:-v2.0.0}
     image: moresandeep/knox-dev:master
 
   ldap:

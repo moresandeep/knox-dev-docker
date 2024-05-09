@@ -19,6 +19,10 @@ limitations under the License.
 <configuration>
 
     <property>
+        <name>gateway.service.alias.impl</name>
+        <value>org.apache.knox.gateway.services.security.impl.RemoteAliasService</value>
+    </property>
+    <property>
         <name>gateway.port</name>
         <value>8443</value>
         <description>The HTTP port for the Gateway.</description>
@@ -56,14 +60,14 @@ limitations under the License.
 
     <property>
         <name>sun.security.krb5.debug</name>
-        <value>true</value>
+        <value>false</value>
         <description>Boolean flag indicating whether to enable debug messages for krb5 authentication</description>
     </property>
 
     <!-- @since 0.10 Websocket configs -->
     <property>
         <name>gateway.websocket.feature.enabled</name>
-        <value>false</value>
+        <value>true</value>
         <description>Enable/Disable websocket feature.</description>
     </property>
 
@@ -83,6 +87,51 @@ limitations under the License.
         <name>gateway.cluster.config.monitor.ambari.interval</name>
         <value>60</value>
         <description>The interval (in seconds) for polling Ambari for cluster configuration changes.</description>
+    </property>
+    <!-- @since 2.0.0 WebShell configs -->
+    <!-- must have websocket enabled to use webshell --> 
+    <property>
+        <name>gateway.webshell.feature.enabled</name>
+        <value>true</value>
+        <description>Enable/Disable webshell feature.</description>
+    </property>
+    <property>
+        <name>gateway.webshell.max.concurrent.sessions</name>
+        <value>20</value>
+        <description>Maximum number of total concurrent webshell sessions</description>
+    </property>
+    <property>
+        <name>gateway.webshell.audit.logging.enabled</name>
+        <value>false</value>
+        <description>[Experimental Feature] Enable/Disable webshell command audit logging.
+            NOTE: Turning this on might log secrets that might be part of
+            command line arguments, please consider this before turning this on.</description>
+    </property>
+    <property>
+        <name>gateway.webshell.read.buffer.size</name>
+        <value>1024</value>
+        <description>Web Shell buffer size for reading</description>
+    </property>
+
+    <!-- @since 2.0.0 websocket JWT validation configs -->
+    <property>
+        <name>gateway.websocket.JWT.validation.feature.enabled</name>
+        <value>true</value>
+        <description>Enable/Disable websocket JWT validation at websocket layer.</description>
+    </property>
+
+    <!-- @since 1.5.0 homepage logout -->
+    <property>
+        <name>knox.homepage.logout.enabled</name>
+        <value>true</value>
+        <description>Enable/disable logout from the Knox Homepage.</description>
+    </property>
+
+    <!-- @since 1.6.0 token management related properties -->
+    <property>
+        <name>gateway.knox.token.eviction.grace.period</name>
+        <value>0</value>
+        <description>A duration (in seconds) beyond a token’s expiration to wait before evicting its state. This configuration only applies when server-managed token state is enabled either in gateway-site or at the topology level.</description>
     </property>
 
     <!-- Knox Admin related config -->
@@ -121,7 +170,7 @@ limitations under the License.
         <value>(objectclass=groupOfNames)</value>
     </property>
     <property>
-        <name>hgateway.group.config.adoop.security.group.mapping.ldap.search.attr.member</name>
+        <name>gateway.group.config.hadoop.security.group.mapping.ldap.search.attr.member</name>
         <value>member</value>
     </property>
     <property>
@@ -130,21 +179,19 @@ limitations under the License.
     </property>
     <property>
         <name>gateway.dispatch.whitelist.services</name>
-        <value>DATANODE,HBASEUI,HDFSUI,JOBHISTORYUI,NODEUI,YARNUI</value>
+        <value>DATANODE,HBASEUI,HDFSUI,JOBHISTORYUI,NODEUI,YARNUI,knoxauth</value>
         <description>The comma-delimited list of service roles for which the gateway.dispatch.whitelist should be applied.</description>
     </property>
     <property>
         <name>gateway.dispatch.whitelist</name>
-        <value>^https?:\/\/(localhost|127\.0\.0\.1|0:0:0:0:0:0:0:1|::1):[0-9].*$</value>
+        <value>^https?:\/\/(www\.local\.com|localhost|127\.0\.0\.1|0:0:0:0:0:0:0:1|::1):[0-9].*$</value>
         <description>The whitelist to be applied for dispatches associated with the service roles specified by gateway.dispatch.whitelist.services.
         If the value is DEFAULT, a domain-based whitelist will be derived from the Knox host.</description>
     </property>
-	
-    <!-- @since 0.10 Websocket configs -->
     <property>
-        <name>gateway.websocket.feature.enabled</name>
-        <value>true</value>
-        <description>Enable/Disable websocket feature.</description>
+        <name>gateway.xforwarded.header.context.append.servicename</name>
+        <value>LIVYSERVER</value>
+        <description>Add service name to x-forward-context header for the list of services defined above.</description>
     </property>
 
 </configuration>
